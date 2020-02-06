@@ -20,6 +20,10 @@ class Login extends Component<LoginType> {
         // if(this.state.doNavigate)
             this.props.history.push("/signup/10");
     }
+
+    loginSuccessful = () => {
+        this.props.history.push("/features");
+    }
     
     render() {
         // console.log("props are", this.props);
@@ -44,7 +48,7 @@ class Login extends Component<LoginType> {
                         onChange = {(event,newValue) => this.setState({password:newValue})}
                         />
                     <br/>
-                    <RaisedButton label="Submit" primary={true} style={style} onClick={this.goToSignUp}/><br/>
+                    <RaisedButton label="Submit" primary={true} style={style} onClick={this.loginSuccessful}/><br/>
                     <div>Not yet Signed Up?</div>
                     <Link to="/signup">
                         <RaisedButton label="Sign Up Now!" primary={true} style={style}/>
