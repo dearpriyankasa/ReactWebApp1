@@ -4,4 +4,5 @@ export type SignUpType = {
     email: string;
     password: string;
     confirmpassword: string;
+    match: any;
 }

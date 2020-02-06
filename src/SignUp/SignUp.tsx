@@ -5,7 +5,7 @@ import {AppBar, RaisedButton, TextField} from 'material-ui';
 // import { Redirect } from 'react-router-dom';
 import '../App.css';
 
-class SignUp extends Component {
+class SignUp extends Component<SignUpType> {
     constructor(props: SignUpType) {
         super(props)
     
@@ -19,6 +19,7 @@ class SignUp extends Component {
     }
     
     render() {
+        console.log("Props are --> ", this.props);
         return (
             <div>
             <MuiThemeProvider>
@@ -61,7 +62,7 @@ class SignUp extends Component {
                         onChange = {(event,newValue) => this.setState({confirmpassword:newValue})}
                         />
                     <br/>
-                    <RaisedButton label="Submit" primary={true} style={style}/>
+                    <RaisedButton label="Submit" primary={true} style={style}/>{this.props.match.params.id}
                 </div>
            </MuiThemeProvider>
             </div>

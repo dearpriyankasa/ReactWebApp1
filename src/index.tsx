@@ -2,18 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-// import SignUp from './SignUp/SignUp';
-// import { Route, Router } from 'react-router-dom';
 import * as serviceWorker from './serviceWorker';
-
-// const routes = (
-//     <BrowserRouter>
-//         <div>
-//             <Route path="/login" component={App}/>
-//             <Route path="/signup" component={SignUp}/>
-//         </div>
-//     </BrowserRouter>
-// );
 
 ReactDOM.render(<App/>, document.getElementById('root'));
 

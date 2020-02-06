@@ -18,7 +18,7 @@ class Login extends Component<LoginType> {
 
     goToSignUp = () => {
         // if(this.state.doNavigate)
-            this.props.history.push("/signup");
+            this.props.history.push("/signup/10");
     }
     
     render() {
