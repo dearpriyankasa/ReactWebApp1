@@ -4,8 +4,10 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {AppBar, RaisedButton, TextField} from 'material-ui';
 import '../App.css';
 import {Link} from 'react-router-dom';
+import {connect} from 'react-redux';
+import { makeLoginCall } from './login_action';
 
-class Login extends Component<LoginType> {
+class Login extends Component<LoginType, {email : string, password: string, doNavigate: boolean}> {
     constructor(props: LoginType) {
         super(props)
     
@@ -17,12 +19,13 @@ class Login extends Component<LoginType> {
     }
 
     goToSignUp = () => {
-        // if(this.state.doNavigate)
+        if(this.state.doNavigate)
             this.props.history.push("/signup/10");
     }
 
     loginSuccessful = () => {
-        this.props.history.push("/features");
+        // this.props.history.push("/features");
+        this.props.login(this.state);
     }
     
     render() {
@@ -64,4 +67,17 @@ const style = {
     margin: 15,
 };
 
-export default Login
+const mapStateToProps = (state: any) => {
+    console.log("State is -->", state);
+    return {
+      state: state.login
+    };
+  };
+  
+const mapDispatchToProps = (dispatch: any) => {
+    return {
+      login: (body: any) => dispatch(makeLoginCall(body))
+    };
+  };
+  
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

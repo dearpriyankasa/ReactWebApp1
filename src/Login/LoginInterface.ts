@@ -3,4 +3,5 @@ export type LoginType = {
     password: string;
     doNavigate: boolean;
     history: any;
+    login: any;
 }
